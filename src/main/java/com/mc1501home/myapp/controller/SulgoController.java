@@ -1,4 +1,4 @@
-package com.mc1501home.myapp;
+package com.mc1501home.myapp.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Handles requests for the application home page.
  */
 @Controller
-public class LoginController {
+public class SulgoController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
+	private static final Logger logger = LoggerFactory.getLogger(SulgoController.class);
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/login/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/sul-go/sul-go", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
@@ -33,7 +33,7 @@ public class LoginController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "/login/login";
+		return "/sul-go/sul-go";
 	}
 	
 }

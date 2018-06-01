@@ -1,4 +1,4 @@
-package com.mc1501home.myapp;
+package com.mc1501home.myapp.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Handles requests for the application home page.
  */
 @Controller
-public class BoardWriteController {
+public class LoginController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(BoardWriteController.class);
+	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/board/board", method = RequestMethod.GET)
+	@RequestMapping(value = "/login/login", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
@@ -33,7 +33,7 @@ public class BoardWriteController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "/board/board";
+		return "/login/login";
 	}
 	
 }

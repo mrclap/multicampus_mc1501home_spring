@@ -205,7 +205,7 @@
 	<h2 class="col-sm-12" style="text-align: center; margin-bottom:40px;">sign up</h2>
 	
 	
-	<form class="form-horizontal">
+	<form class="form-horizontal" role="form" action="<c:url value='/signup/read' />" method="POST">
 	<!-- 1. email -->
 	  <div class="form-group" id="email">
 	    <label for="inputEmail" class="col-sm-2 control-label">Email</label>
