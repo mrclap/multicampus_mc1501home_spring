@@ -19,16 +19,16 @@ import com.mc1501home.myapp.service.SignupService;
  * Handles requests for the application home page.
  */
 @Controller
-@RequestMapping(value = "/signup")
+@RequestMapping(value = "signup")
 public class SignupController {
 	
 	@Autowired
 	private SignupService service;
-	
+
 	@RequestMapping(value="/{action}", method= {RequestMethod.GET, RequestMethod.POST} )
 	public ModelAndView actionMethod(@RequestParam Map<String, Object> paramMap,
 							@PathVariable String action, ModelAndView modelandView) {
-		String viewName = "/signup";
+		String viewName = "signup";
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		
 		if("read".equalsIgnoreCase(action)) {
@@ -40,6 +40,7 @@ public class SignupController {
 			action = "/read";
 		} else{
 			//회원가입창으로 이동
+			System.out.println("Entering signup mode");
 			action = "/signup";
 		}
 			
