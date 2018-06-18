@@ -34,7 +34,7 @@
       <div class="row">
         <div class="col-lg-4">
         <!-- sul-go indicator가 아직 활성화 안됐을 때 -->
-          <!-- <img class="img-circle" src="./images/milk.png" alt="milk" width="140" height="140">
+          <!-- <img class="img-circle" src="<c:url value='/resources/images/milk.png'/>" alt="milk" width="140" height="140">
           <h2>건전한 오늘</h2>
           <p>오늘은 아직 건전한 날입니다.</p> -->
           <img class="img-circle" src="<c:url value='/resources/images/sul-go_greenlight.png'/>" alt="sssoju" width="140" height="140">
@@ -43,11 +43,11 @@
           <p><a class="btn btn-default" href="<c:url value='/sul-go/sul-go'/>" role="button">View details »</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <!-- <img class="img-circle" src="./images/hot.gif" alt="hot" width="140" height="140">
+          <!-- <img class="img-circle" src="<c:url value='/resources/images/hot.gif'/>" alt="hot" width="140" height="140">
           <h2>더워요..</h2> --> 
           <img class="img-circle" src="<c:url value='/resources/images/happy.gif'/>" alt="happy" width="140" height="140">
           <h2>딱좋아요!</h2>
-          <!-- <img class="img-circle" src="./images/cold.png" alt="cold" width="140" height="140">
+          <!-- <img class="img-circle" src="<c:url value='/resources/images/cold.png'/>" alt="cold" width="140" height="140">
           <h2>츄워요..</h2> -->
           <p><a class="btn btn-default" href="<c:url value='/resources/coldhot/coldhot'/>" role="button">View details »</a></p>
         </div><!-- /.col-lg-4 -->
