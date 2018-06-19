@@ -22,7 +22,7 @@ import com.mc1501home.myapp.service.SignupService;
 @RequestMapping(value = "signup")
 public class SignupController {
 	
-	private final static String MAPPING = "/signup/";
+	private final static String MAPPING = "signup/";
 	
 	@Autowired
 	private SignupService service;
