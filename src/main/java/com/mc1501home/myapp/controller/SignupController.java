@@ -22,31 +22,62 @@ import com.mc1501home.myapp.service.SignupService;
 @RequestMapping(value = "signup")
 public class SignupController {
 	
+	private final static String MAPPING = "/signup/";
+	
 	@Autowired
 	private SignupService service;
 
-	@RequestMapping(value="/{action}", method= {RequestMethod.GET, RequestMethod.POST} )
-	public ModelAndView actionMethod(@RequestParam Map<String, Object> paramMap,
-							@PathVariable String action, ModelAndView modelandView) {
-		String viewName = "signup";
-		Map<String, Object> resultMap = new HashMap<String, Object>();
-		
-		if("read".equalsIgnoreCase(action)) {
-			//È¸¿ø°¡ÀÔ¿¡ ÀÔ·ÂÇÑ Á¤º¸ º¸¿©ÁÖ±â
-			
-			System.out.println("Entering Read mode");
-			resultMap = (Map<String, Object>) service.getObject(paramMap);
-			modelandView.addObject("resultMap", resultMap);
-			action = "/read";
-		} else{
-			//È¸¿ø°¡ÀÔÃ¢À¸·Î ÀÌµ¿
-			System.out.println("Entering signup mode");
-			action = "/signup";
+//	@RequestMapping(value="/{action}", method= {RequestMethod.GET, RequestMethod.POST} )
+//	public ModelAndView actionMethod(@RequestParam Map<String, Object> paramMap,
+//							@PathVariable String action, ModelAndView modelandView) {
+//		String viewName = "signup";
+//		Map<String, Object> resultMap = new HashMap<String, Object>();
+//		
+//		if("read".equalsIgnoreCase(action)) {
+//			resultMap = (Map<String, Object>) service.getObject("", paramMap);
+//			modelandView.addObject("resultMap", resultMap);
+//			action = "/read";
+//		} else{
+//			//È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
+//			System.out.println("Entering signup mode");
+//			action = "/signup";
+//		}
+//			
+//		viewName = viewName + action;
+//		modelandView.setViewName(viewName);
+//		
+//		return modelandView;
+//	}
+	
+	@RequestMapping(value = MAPPING+"{action}", method = { RequestMethod.GET, RequestMethod.POST })
+	public ModelAndView actionMethod(@RequestParam Map<String, Object> paramMap, @PathVariable String action,
+			ModelAndView modelandView) {
+
+		String viewName = MAPPING + action ;
+		String forwardView = (String) paramMap.get("forwardView") ;
+
+		Map<String, Object> resultMap = new HashMap<String, Object>() ;
+		List<Object> resultList = new ArrayList<Object>();
+
+		// divided depending on action value
+		if ("signup".equalsIgnoreCase(action)) {
+		} else if ("update".equalsIgnoreCase(action)) {
+			resultMap = (Map<String, Object>) service.getObject("", paramMap);
+			paramMap.put("action", action);
+		} else if ("insert".equalsIgnoreCase(action)) {
+			service.saveObject("", paramMap);
+			paramMap.put("action", "index");
 		}
-			
-		viewName = viewName + action;
-		modelandView.setViewName(viewName);
 		
+		if(forwardView != null){
+			viewName = forwardView;
+		}
+		
+		modelandView.setViewName(viewName);
+
+		modelandView.addObject("paramMap", paramMap);
+		modelandView.addObject("resultMap", resultMap);
+		modelandView.addObject("resultList", resultList);
 		return modelandView;
 	}
 }

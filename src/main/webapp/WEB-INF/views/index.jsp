@@ -49,7 +49,7 @@
           <h2>딱좋아요!</h2>
           <!-- <img class="img-circle" src="<c:url value='/resources/images/cold.png'/>" alt="cold" width="140" height="140">
           <h2>츄워요..</h2> -->
-          <p><a class="btn btn-default" href="<c:url value='/resources/coldhot/coldhot'/>" role="button">View details »</a></p>
+          <p><a class="btn btn-default" href="<c:url value='/coldhot/coldhot'/>" role="button">View details »</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">

@@ -41,93 +41,20 @@
 	       </tr>
 	     </thead>
 	     <tbody>
-	       <tr>
-	         <td>1</td>
-	         <td>게시판입니다</td>
-	         <td>이봉호</td>
-	         <td>2018.05.16</td>
-	         <td>2</td>
-	       </tr>
-	
-	       <tr>
-	         <td>2</td>
-	         <td>직접입력하기</td>
-	         <td>이봉호</td>
-	         <td>2018.05.16</td>
-	         <td>3</td>
-	       </tr>
-	
-	       <tr>
-	         <td>3</td>
-	         <td>박수형입니다.</td>
-	         <td>사기꾼</td>
-	         <td>2018.05.16</td>
-	         <td>4</td>
-	       </tr>
-	       <tr>
-	         <td>3</td>
-	         <td>사기꾼입니다.</td>
-	         <td>박수형</td>
-	         <td>2018.05.16</td>
-	         <td>4</td>
-	       </tr>
-	       <tr>
-	         <td>3</td>
-	         <td>스타 배우고싶습니다.</td>
-	         <td>임인호</td>
-	         <td>2018.05.16</td>
-	         <td>4</td>
-	       </tr>
-	       <tr>
-	         <td>3</td>
-	         <td>열권이형..</td>
-	         <td>박진우</td>
-	         <td>2018.05.16</td>
-	         <td>4</td>
-	       </tr>
-	       <tr>
-	         <td>3</td>
-	         <td>안돼 진우야..</td>
-	         <td>성열권</td>
-	         <td>2018.05.16</td>
-	         <td>4</td>
-	       </tr>
-	       <tr>
-	         <td>3</td>
-	         <td>게시판</td>
-	         <td>이봉호</td>
-	         <td>2018.05.16</td>
-	         <td>4</td>
-	       </tr>
-	       <tr>
-	         <td>3</td>
-	         <td>게시판</td>
-	         <td>이봉호</td>
-	         <td>2018.05.16</td>
-	         <td>4</td>
-	       </tr>
-	       <tr>
-	         <td>3</td>
-	         <td>게시판</td>
-	         <td>이봉호</td>
-	         <td>2018.05.16</td>
-	         <td>4</td>
-	       </tr>
-	       <tr>
-	         <td>3</td>
-	         <td>게시판</td>
-	         <td>이봉호</td>
-	         <td>2018.05.16</td>
-	         <td>4</td>
-	       </tr>
-	       <tr>
-	         <td>3</td>
-	         <td>게시판</td>
-	         <td>이봉호</td>
-	         <td>2018.05.16</td>
-	         <td>4</td>
-	       </tr>
-	     </tbody>
+						<c:forEach items="${resultList}" var="resultData" varStatus="loop">
+							<tr
+								class="${(loop.index+1)%2 == 2 ? 'odd gradeX' : 'even gradeC'}">
+								<td><input type="checkbox" class="checkbox"
+									name="BOARD_SEQ" value="${resultData.BOARD_SEQ}" /></td>
+								<td><a
+									href="<c:url value="#" />">
+										${resultData.BOARD_TITLE}</a></td>
+								<td>${resultData.USER_SEQ}</td>
+								<td>${resultData.BOARD_DATE}</td>
+								<td>${resultData.BOARD_VIEW}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
 	   </table>
 	
 	<div class="container">
