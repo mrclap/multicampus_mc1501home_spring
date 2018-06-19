@@ -18,7 +18,6 @@ public class SignupDao {
 	
 	public Object saveObject(String sqlMapId, Object dataMap) {
 		Integer result = sqlSession.insert(sqlMapId, dataMap);
-		
 		return result;
 	}
 	

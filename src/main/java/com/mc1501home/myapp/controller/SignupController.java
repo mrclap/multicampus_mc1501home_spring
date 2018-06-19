@@ -64,7 +64,7 @@ public class SignupController {
 			resultMap = (Map<String, Object>) service.getObject("", paramMap);
 			paramMap.put("action", action);
 		} else if ("insert".equalsIgnoreCase(action)) {
-			service.saveObject("", paramMap);
+			resultMap = (Map<String,Object>) service.saveObject("", paramMap);
 			paramMap.put("action", "index");
 		}
 		

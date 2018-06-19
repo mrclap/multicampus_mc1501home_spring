@@ -122,12 +122,14 @@
     <!-- sign up  -->
 	<h2 class="col-sm-12" style="text-align: center; margin-bottom:40px;">sign up</h2>
 	
-	<form class="form-horizontal" role="form" action="<c:url value='/signup/read' />" method="POST">
+	<form class="form-horizontal" role="form" action="<c:url value='/signup/insert' />" method="POST">
+	
+	
 	<!-- 1. email -->
 	  <div class="form-group" id="email">
 	    <label for="inputEmail" class="col-sm-2 control-label">Email</label>
 	    <div class="col-sm-9">
-	      <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
+	      <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email" value="${resultMap.USER_ID}">
 	      <span id="emailCheckSymbol"></span>
 	      <span id="emailCheckSymbolStatus"></span>
 		  <p class="col-sm-1"></p>
@@ -149,7 +151,7 @@
 	  <div class="form-group" id="password">
 	    <label for="inputPassword" class="col-sm-2 control-label">Password</label>
 	    <div class="col-sm-9">
-	      <input type="password" name="password"  class="form-control" id="inputPassword" placeholder="영문대문자, 소문자, 숫자, 특수문자 1개 이상, 총 8자리 이상">
+	      <input type="password" name="password"  class="form-control" id="inputPassword" placeholder="영문대문자, 소문자, 숫자, 특수문자 1개 이상, 총 8자리 이상" value="${resultMap.USER_PASSWORD}">
 	      <span id="passwordCheckSymbol"></span>
 	      <span id="passwordCheckSymbolStatus"></span>
 	      <p class="col-sm-1"></p>
@@ -171,7 +173,7 @@
 	  <div class="form-group">
 	    <label for="inputName" class="col-sm-2 control-label">Name</label>
 	    <div class="col-sm-9">
-	      <input type="text" name="name" class="form-control" id="inputName" placeholder="Name">
+	      <input type="text" name="name" class="form-control" id="inputName" placeholder="Name" value="${resultMap.USER_NAME}">
 	      <p class="col-sm-1"></p>
 	    </div>
 	  </div>
@@ -180,7 +182,7 @@
 	  <div class="form-group">
 	    <label for="inputBirthday" class="col-sm-2 control-label">Birthday</label>
 	    <div class="col-sm-9">
-	      <input type="date" name="birthday" class="form-control" id="inputBirthday" placeholder="Birthday">
+	      <input type="date" name="birthday" class="form-control" id="inputBirthday" placeholder="Birthday" value="${resultMap.USER_BIRTH}">
 	      <p class="col-sm-1"></p>
 	    </div>
 	  </div>
@@ -189,12 +191,12 @@
 	  <div class="form-group">
 	    <label for="inputTelNum" class="col-sm-2 control-label">Tel</label>
 	    <div class="col-sm-9">
-	      <input type="tel" name="telNum" class="form-control" id="inputTelNum" placeholder="Telephone Num.">
+	      <input type="tel" name="telNum" class="form-control" id="inputTelNum" placeholder="Telephone Num." value="${resultMap.USER_TEL}">
 	      <p class="col-sm-1"></p>
 	    </div>
 	  </div>
 
-	  <!-- 8. address
+<!-- 	  <!-- 8. address
 	  10 : 경기도
 	  20 : 전라도
 	  30 : 경상도
@@ -218,11 +220,11 @@
 	    </div>
 	  </div>
 	  
-	   <!-- 9. hobby
+	   9. hobby
 	  100 : 수영
 	  200 : 음악감상
 	  300 : 공부
-	   -->
+	  
 	 
 	  <div class="form-group">
 	    <label for="inputHobbies" class="col-sm-2 control-label">Hobby</label>
@@ -241,7 +243,7 @@
 	      <p class="col-sm-1"></p>
 	    </div>
 	  </div>
-	  
+	   -->
 	  <div class="form-group">
 	    <div class="col-sm-offset-2 col-sm-10">
 	      <button type="submit" class="btn btn-default">sign up</button>
