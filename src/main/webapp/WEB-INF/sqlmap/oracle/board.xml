@@ -26,6 +26,7 @@
 			, USER_SEQ
 		from BOARD
 		where USER_SEQ = #{USER_SEQ}
+		and BOARD_SEQ = #{BOARD_SEQ}
 	</select>
 
 	<insert id="merge" parameterType="Map">
@@ -51,8 +52,22 @@
 	</insert>
 
 	<update id="update" parameterType="Map">
+		UPDATE BOARD SET
+			BOARD_TITLE	= #{BOARD_TITLE}<!-- 명칭 -->
+			, BOARD_DESCIPT	= #{BOARD_DESCIPT}<!-- 대표 전화번호 -->
+		WHERE BOARD_SEQ = #{BOARD_SEQ}
+		AND USER_SEQ = #{USER_SEQ}
+	</update>
+	
+	<update id="viewup" parameterType="Map">
+		UPDATE BOARD SET
+			BOARD_VIEW = BOARD_VIEW+1
+		WHERE BOARD_SEQ = #{BOARD_SEQ}
+		AND USER_SEQ = #{USER_SEQ}
 	</update>
 
 	<delete id="delete" parameterType="Map">
+		delete from BOARD
+		where BOARD_SEQ = #{BOARD_SEQ}
 	</delete>
 </mapper>

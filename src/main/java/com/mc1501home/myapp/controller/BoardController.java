@@ -65,14 +65,16 @@ public class BoardController {
 		} else if ("insert".equalsIgnoreCase(action)) {
 			resultList = (List<Object>) service.saveObject("", paramMap);
 			viewName = MAPPING + "board";
-		} else if ("merge".equalsIgnoreCase(action)) {
-			resultMap = (Map<String, Object>) service.saveObject("", paramMap);
+		} else if ("update".equalsIgnoreCase(action)) {
+			resultMap = (Map<String, Object>) service.updateObject("", paramMap);
+			viewName = MAPPING + "read";
 		} else if ("read".equalsIgnoreCase(action)) {
 			resultMap = (Map<String, Object>) service.getObject("", paramMap);
 		} else if ("board".equalsIgnoreCase(action)) {
 			resultList = (List<Object>) service.getList("", paramMap);
 		} else if ("delete".equalsIgnoreCase(action)) {
 			resultList = (List<Object>) service.deleteObject("", paramMap);
+			viewName = MAPPING + "board";
 		} 
 
 		if(forwardView != null){

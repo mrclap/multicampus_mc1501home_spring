@@ -16,6 +16,12 @@ public class BoardDao {
 		return result;
 	}
 	
+	public Object updateObject(String sqlMapId, Object dataMap) {
+		Integer result = sqlSession.update(sqlMapId, dataMap);
+		
+		return result;
+	}
+	
 	public Object saveObject(String sqlMapId, Object dataMap) {
 		Integer result = sqlSession.insert(sqlMapId, dataMap);
 		

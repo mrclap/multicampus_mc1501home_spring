@@ -31,14 +31,17 @@
 	<div class="container">
 	<table class="table table-bordered">
 	   <tbody>
-	       <form action="board/board" method="post" encType="multiplart/form-data">
+	       <form action="<c:url value = '/board/update'/>" method="post" encType="multiplart/form-data">
+	       		<input type = "hidden" name = "BOARD_SEQ" value = "${resultMap.BOARD_SEQ }"/>
+	       		<input type = "hidden" name = "USER_SEQ" value = "${resultMap.USER_SEQ }"/>
+	       		
 	           <tr>
 	               <th>제목: </th>
-	               <td><input type="text" name="subject" class="form-control" value = "${resultMap.BOARD_TITLE }"/></td>
+	               <td><input type="text" name="BOARD_TITLE" class="form-control" value = "${resultMap.BOARD_TITLE }"/></td>
 	           </tr>
 	           <tr>
 	               <th>내용: </th>
-	               <td><textarea cols="10" name="content" class="form-control" style="height:300px;">${resultMap.BOARD_DESCIPT }, ${resultMap.USER_SEQ}</textarea></td>
+	               <td><textarea cols="10" name="BOARD_DESCIPT" class="form-control" style="height:300px;">${resultMap.BOARD_DESCIPT }, ${resultMap.USER_SEQ}, ${resultMap.BOARD_SEQ }</textarea></td>
 	           </tr>
 	           <tr>
 	               <th>첨부파일: </th>
@@ -50,7 +53,8 @@
 	           </tr>
 	           <tr>
 	               <td colspan="2">
-	                   <!-- <input type="button" value="등록" onclick="sendData()" class="btn btn-default pull-right"/> -->
+	               	   <input type="submit" value="수정" onclick="sendData()" class="btn btn-default pull-right"/>
+	                   <a class="btn btn-default pull-right" href="<c:url value = '/board/delete?BOARD_SEQ=${resultMap.BOARD_SEQ }'/>">삭제</a>
 	                   <!-- <input type="button" value="RESET" class="btn btn-default pull-left"/> -->
 	                   <a class="btn btn-default pull-right" href="<c:url value = '/board/board'/>">글 목록</a>
 	               </td>

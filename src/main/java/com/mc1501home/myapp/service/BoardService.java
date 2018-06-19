@@ -18,8 +18,20 @@ public class BoardService {
 	private CommonUtil util;
 	
 	public Object getObject(String sqlMapId, Object dataMap) {
-		sqlMapId = "board.read";
+		sqlMapId = "board.viewup";
+		Object resultObject = dao.getObject(sqlMapId, dataMap);
 		
+		sqlMapId = "board.read";
+		resultObject = dao.getObject(sqlMapId, dataMap);
+		
+		return resultObject;
+	}
+	
+	public Object updateObject(String sqlMapId, Object dataMap) {
+		sqlMapId = "board.update";
+		Object resultKey = dao.updateObject(sqlMapId, dataMap);
+		
+		sqlMapId = "board.read";
 		Object resultObject = dao.getObject(sqlMapId, dataMap);
 		
 		return resultObject;
@@ -47,9 +59,12 @@ public class BoardService {
 	}
 	
 	public Object deleteObject(String sqlMapId, Object dataMap) {
-		sqlMapId = "";
+		sqlMapId = "board.delete";
+		Object resultKey = dao.deleteObject(sqlMapId, dataMap);
 		
-		Object resultObject = dao.deleteObject(sqlMapId, dataMap);
+		sqlMapId = "board.list";
+		
+		Object resultObject = dao.getList(sqlMapId, dataMap);
 		
 		return resultObject;
 	}
