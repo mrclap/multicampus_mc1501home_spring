@@ -19,7 +19,6 @@ import com.mc1501home.myapp.service.SignupService;
  * Handles requests for the application home page.
  */
 @Controller
-@RequestMapping(value = "signup")
 public class SignupController {
 	
 	private final static String MAPPING = "signup/";

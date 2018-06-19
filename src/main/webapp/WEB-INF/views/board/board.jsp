@@ -28,9 +28,9 @@
 	    </div>
 	  </div>
    
-	<div class="container text-center" style="height:100%;">
+	<div class="container text-center">
 	 <div class="row" style="height : 100%;">
-	   <table class="table table-hover" style="width:100%; height:100%;">
+	   <table class="table table-hover" style="width:100%;">
 	     <thead>
 	       <tr>
 	         <th class="text-center">번호</th>
@@ -44,8 +44,7 @@
 						<c:forEach items="${resultList}" var="resultData" varStatus="loop">
 							<tr
 								class="${(loop.index+1)%2 == 2 ? 'odd gradeX' : 'even gradeC'}">
-								<td><input type="checkbox" class="checkbox"
-									name="BOARD_SEQ" value="${resultData.BOARD_SEQ}" /></td>
+								<td>${resultData.BOARD_SEQ }</td>
 								<td><a
 									href="<c:url value="#" />">
 										${resultData.BOARD_TITLE}</a></td>
