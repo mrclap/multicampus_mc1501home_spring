@@ -129,7 +129,7 @@
 	  <div class="form-group" id="email">
 	    <label for="inputEmail" class="col-sm-2 control-label">Email</label>
 	    <div class="col-sm-9">
-	      <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email" value="${resultMap.USER_ID}">
+	      <input type="email" name="USER_ID" class="form-control" id="inputEmail" placeholder="Email" value="">
 	      <span id="emailCheckSymbol"></span>
 	      <span id="emailCheckSymbolStatus"></span>
 		  <p class="col-sm-1"></p>
@@ -151,7 +151,7 @@
 	  <div class="form-group" id="password">
 	    <label for="inputPassword" class="col-sm-2 control-label">Password</label>
 	    <div class="col-sm-9">
-	      <input type="password" name="password"  class="form-control" id="inputPassword" placeholder="영문대문자, 소문자, 숫자, 특수문자 1개 이상, 총 8자리 이상" value="${resultMap.USER_PASSWORD}">
+	      <input type="password" name="USER_PASSWORD"  class="form-control" id="inputPassword" placeholder="영문대문자, 소문자, 숫자, 특수문자 1개 이상, 총 8자리 이상" value="">
 	      <span id="passwordCheckSymbol"></span>
 	      <span id="passwordCheckSymbolStatus"></span>
 	      <p class="col-sm-1"></p>
@@ -173,7 +173,7 @@
 	  <div class="form-group">
 	    <label for="inputName" class="col-sm-2 control-label">Name</label>
 	    <div class="col-sm-9">
-	      <input type="text" name="name" class="form-control" id="inputName" placeholder="Name" value="${resultMap.USER_NAME}">
+	      <input type="text" name="USER_NAME" class="form-control" id="inputName" placeholder="Name" value="">
 	      <p class="col-sm-1"></p>
 	    </div>
 	  </div>
@@ -182,7 +182,7 @@
 	  <div class="form-group">
 	    <label for="inputBirthday" class="col-sm-2 control-label">Birthday</label>
 	    <div class="col-sm-9">
-	      <input type="date" name="birthday" class="form-control" id="inputBirthday" placeholder="Birthday" value="${resultMap.USER_BIRTH}">
+	      <input type="date" name="USER_BIRTH" class="form-control" id="inputBirthday" placeholder="Birthday" value="">
 	      <p class="col-sm-1"></p>
 	    </div>
 	  </div>
@@ -191,7 +191,7 @@
 	  <div class="form-group">
 	    <label for="inputTelNum" class="col-sm-2 control-label">Tel</label>
 	    <div class="col-sm-9">
-	      <input type="tel" name="telNum" class="form-control" id="inputTelNum" placeholder="Telephone Num." value="${resultMap.USER_TEL}">
+	      <input type="tel" name="USER_TEL" class="form-control" id="inputTelNum" placeholder="Telephone Num." value="">
 	      <p class="col-sm-1"></p>
 	    </div>
 	  </div>
@@ -207,13 +207,13 @@
 	    <div class="col-sm-9">
 		    <div class="btn-group btn-group-toggle" data-toggle="buttons" id="inputAddr">
 			<label class="btn btn-secondary active">
-		    	<input type="radio" name="addr" value="10" autocomplete="off" checked> 경기도
+		    	<input type="radio" name="ADDRESS_SEQ" value="4000" autocomplete="off" checked> 서울
 		 	</label>
 		    <label class="btn btn-secondary">
-		    	<input type="radio" name="addr" value="20" autocomplete="off"> 전라도
+		    	<input type="radio" name="ADDRESS_SEQ" value="4001" autocomplete="off"> 부산
 		  	</label>
 		  	<label class="btn btn-secondary">
-		    	<input type="radio" name="addr" value="30" autocomplete="off"> 경상도
+		    	<input type="radio" name="ADDRESS_SEQ" value="4002" autocomplete="off"> 대구
 		  	</label>
 		</div>
 	      <p class="col-sm-1"></p>
@@ -231,13 +231,13 @@
 	    <div class="col-sm-9">
 		    <div class="btn-group btn-group-toggle" data-toggle="buttons" id="inputHobbies">
 			<label class="btn btn-secondary">
-		    	<input type="checkbox" name="hobbies" value="100" > 수영
+		    	<input type="checkbox" name="HOBBY_SEQ" value="3000" > 축구
 		 	</label>
 		    <label class="btn btn-secondary">
-		    	<input type="checkBox" name="hobbies" value="200" > 음악감상
+		    	<input type="checkBox" name="HOBBY_SEQ" value="3001" > 야구
 		  	</label>
 		  	<label class="btn btn-secondary">
-		    	<input type="checkBox" name="hobbies" value="300" > 공부
+		    	<input type="checkBox" name="HOBBY_SEQ" value="3002" > 수영
 		  	</label>
 		</div>
 	      <p class="col-sm-1"></p>

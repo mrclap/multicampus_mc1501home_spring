@@ -7,12 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mc1501home.myapp.dao.SignupDao;
+import com.mc1501home.myapp.util.CommonUtil;
 
 @Service
 public class SignupService {
 	
 	@Autowired
 	private SignupDao dao;
+	
+	@Autowired
+	private CommonUtil util;
 	
 	public Object getObject(String sqlMapId, Object dataMap) {
 		Object resultObject = dao.getObject(sqlMapId, dataMap);
@@ -21,9 +25,13 @@ public class SignupService {
 	}
 	
 	public Object saveObject(String sqlMapId, Object dataMap) {
-		Object resultObject = dao.saveObject(sqlMapId, dataMap);
+		sqlMapId = "signup.insert";
 		
-		return resultObject;
+		((Map)dataMap).put("USER_SEQ", util.getUniqueSequence());
+		
+		Object resultKey = dao.saveObject(sqlMapId, dataMap);
+		
+		return resultKey;
 		/*String addr = ((Map)dataMap).get("addr").toString();
 		if(addr.equals("10")){
 			((Map)dataMap).put("addr", "경기도");

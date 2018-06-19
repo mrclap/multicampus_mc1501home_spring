@@ -16,18 +16,22 @@
 
 	<insert id="insert" parameterType="Map">
 	INSERT INTO USERS(
-	USER_ID
+	USER_SEQ
+	,USER_ID
 	,USER_PASSWORD
 	,USER_NAME
 	,USER_BIRTH
 	,USER_TEL
+	,ADDRESS_SEQ
 	)
 	VALUES(
-	#{USER_ID}
+	#{USER_SEQ}
+	,#{USER_ID}
 	,#{USER_PASSWORD}
 	,#{USER_NAME}
 	,#{USER_BIRTH}
 	,#{USER_TEL}
+	,#{ADDRESS_SEQ}
 	)
 	
 	</insert>
