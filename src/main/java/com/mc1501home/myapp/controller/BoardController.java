@@ -62,9 +62,9 @@ public class BoardController {
 
 		// divided depending on action value
 		if ("write".equalsIgnoreCase(action)) {
-		} else if ("update".equalsIgnoreCase(action)) {
-			resultMap = (Map<String, Object>) service.getObject("", paramMap);
-			paramMap.put("action", action);
+		} else if ("insert".equalsIgnoreCase(action)) {
+			resultList = (List<Object>) service.saveObject("", paramMap);
+			viewName = MAPPING + "board";
 		} else if ("merge".equalsIgnoreCase(action)) {
 			resultMap = (Map<String, Object>) service.saveObject("", paramMap);
 		} else if ("read".equalsIgnoreCase(action)) {

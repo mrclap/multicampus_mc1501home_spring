@@ -31,14 +31,14 @@
 	<div class="container">
 	<table class="table table-bordered">
 	   <tbody>
-	       <form action="write_ok.jsp" method="post" encType="multiplart/form-data">
+	       <form action="<c:url value = '/board/insert'/>" method="post" encType="multiplart/form-data">
 	           <tr>
 	               <th>제목: </th>
-	               <td><input type="text" placeholder="제목을 입력하세요. " name="subject" class="form-control"/></td>
+	               <td><input type="text" placeholder="제목을 입력하세요. " name="BOARD_TITLE" class="form-control"/></td>
 	           </tr>
 	           <tr>
 	               <th>내용: </th>
-	               <td><textarea cols="10" placeholder="내용을 입력하세요. " name="content" class="form-control" style="height:300px;"></textarea></td>
+	               <td><textarea cols="10" placeholder="내용을 입력하세요. " name="BOARD_DESCIPT" class="form-control" style="height:300px;"></textarea></td>
 	           </tr>
 	           <tr>
 	               <th>첨부파일: </th>
@@ -50,7 +50,7 @@
 	           </tr>
 	           <tr>
 	               <td colspan="2">
-	                   <input type="button" value="등록" onclick="sendData()" class="btn btn-default pull-right"/>
+	                   <input type="submit" value="등록" onclick="sendData()" class="btn btn-default pull-right"/>
 	                   <input type="button" value="RESET" class="btn btn-default pull-left"/>
 	                   <a class="btn btn-default pull-right" href="./board.html">글 목록</a>
 	               </td>

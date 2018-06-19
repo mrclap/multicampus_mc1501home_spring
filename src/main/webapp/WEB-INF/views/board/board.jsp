@@ -46,7 +46,7 @@
 								class="${(loop.index+1)%2 == 2 ? 'odd gradeX' : 'even gradeC'}">
 								<td>${resultData.BOARD_SEQ }</td>
 								<td><a
-									href="<c:url value="#" />">
+									href="<c:url value="/board/read?USER_SEQ=${resultData.USER_SEQ }" />">
 										${resultData.BOARD_TITLE}</a></td>
 								<td>${resultData.USER_SEQ}</td>
 								<td>${resultData.BOARD_DATE}</td>

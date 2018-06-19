@@ -9,19 +9,45 @@
 		select 
 			BOARD_SEQ
 			, BOARD_TITLE
+			, BOARD_DESCIPT
 			, BOARD_DATE
 			, BOARD_VIEW
 			, USER_SEQ
 		from BOARD
 	</select>
 	
-	<select id="write" resultType="Map" parameterType="Map">
+	<select id="read" resultType="Map" parameterType="Map">
+		select 
+			BOARD_SEQ
+			, BOARD_TITLE
+			, BOARD_DESCIPT
+			, BOARD_DATE
+			, BOARD_VIEW
+			, USER_SEQ
+		from BOARD
+		where USER_SEQ = #{USER_SEQ}
 	</select>
 
 	<insert id="merge" parameterType="Map">
 	</insert>
 
 	<insert id="insert" parameterType="Map">
+		INSERT INTO BOARD (
+			BOARD_SEQ	<!-- 조직 일련번호 -->
+			, BOARD_TITLE	<!-- 명칭 -->
+			, BOARD_DESCIPT	<!-- 대표 전화번호 -->
+			, BOARD_DATE	<!-- 정렬순서 -->
+			, BOARD_VIEW
+			, USER_SEQ	<!-- 상위 조직 일련번호 -->
+		)
+		values(
+			#{BOARD_SEQ}	<!-- 조직 일련번호 -->
+			, #{BOARD_TITLE}	<!-- 명칭 -->
+			, #{BOARD_DESCIPT}	<!-- 대표 전화번호 -->
+			, SYSDATE	<!-- 정렬순서 -->
+			, 0
+			, '1'	<!-- 상위 조직 일련번호 -->
+		)
 	</insert>
 
 	<update id="update" parameterType="Map">
