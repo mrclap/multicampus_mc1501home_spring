@@ -98,6 +98,7 @@
     			} 
     		});
     	});
+    	   
     </script>
     
     <!-- signup js over -->
@@ -123,7 +124,6 @@
 	<h2 class="col-sm-12" style="text-align: center; margin-bottom:40px;">sign up</h2>
 	
 	<form class="form-horizontal" role="form" action="<c:url value='/signup/insert' />" method="POST">
-	
 	
 	<!-- 1. email -->
 	  <div class="form-group" id="email">
@@ -220,10 +220,10 @@
 	    </div>
 	  </div>
 	  
-	   9. hobby
+	<!--    9. hobby
 	  100 : 수영
 	  200 : 음악감상
-	  300 : 공부
+	  300 : 공부  -->
 	  
 	 
 	  <div class="form-group">
@@ -243,11 +243,27 @@
 	      <p class="col-sm-1"></p>
 	    </div>
 	  </div>
-	   -->
-	  <div class="form-group">
-	    <div class="col-sm-offset-2 col-sm-10">
-	      <button type="submit" class="btn btn-default">sign up</button>
-	      <button type="submit" class="btn btn-default">cancel</button>
-	    </div>
-	  </div>
+
+		<div class="form-group">
+			<label for="inputauthority" class="col-sm-2 control-label">Authorirty</label>
+			<div class="col-sm-9">
+				<div class="btn-group btn-group-toggle" data-toggle="buttons"
+					id="inputAuthority">
+					<select name="Authority">
+						<option value="5000">ANONYMOUS</option>
+						<option value="5001">INSTRUCTOR</option>
+						<option value="5002">STUDENT</option>
+						<option value="5003">MANAGER</option>
+						<option value="5004">ADMIN</option>
+					</select>
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-default">sign up</button>
+					<button type="submit" class="btn btn-default">cancel</button>
+				</div>
+			</div>
 	</form>

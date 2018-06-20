@@ -21,7 +21,9 @@ import com.mc1501home.myapp.service.SignupService;
 @Controller
 public class SignupController {
 	
+	
 	private final static String MAPPING = "signup/";
+	private final static String MAPP ="/myapp";
 	
 	@Autowired
 	private SignupService service;
@@ -65,15 +67,18 @@ public class SignupController {
 			paramMap.put("action", action);
 		} else if ("insert".equalsIgnoreCase(action)) {
 			service.saveObject("", paramMap);
-			viewName = "";
-		} 
-		
-		if(forwardView != null){
-			viewName = forwardView;
+			viewName = "/index";
+			
+			
+			
 		}
+			
+		/*if(forwardView != null){
+			viewName = forwardView;
+		}*/
 		
 		modelandView.setViewName(viewName);
-
+		
 		modelandView.addObject("paramMap", paramMap);
 		modelandView.addObject("resultMap", resultMap);
 		modelandView.addObject("resultList", resultList);

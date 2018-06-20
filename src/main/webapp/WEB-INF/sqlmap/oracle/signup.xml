@@ -33,7 +33,6 @@
 	,#{USER_TEL}
 	,#{ADDRESS_SEQ}
 	)
-	
 	</insert>
 
 	<update id="update" parameterType="Map">
