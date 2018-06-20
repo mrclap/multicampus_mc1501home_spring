@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="principalName" value="${pageContext.request.userPrincipal.name}"/>
 
 <html>
 <head>
@@ -34,11 +35,20 @@
 
 	<div class="container">
 	  <div class="row text-center">
+	  	<c:choose>
+	  		<c:when test="${'2' eq resultMap.SULGO_FLAG }">
 				<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-				<button type="button" class="btn btn-success btn-lg">술고?!</button>
-					
+				<button type="button" class="btn btn-success btn-lg"><a href="<c:url value = '/'/>">술고?!</a></button>
+			</c:when>		
+			<c:when test="${'1' eq resultMap.SULGO_FLAG }">
 				<!-- Indicates a dangerous or potentially negative action -->
 				<button type="button" class="btn btn-danger btn-lg ">Nope!</button>
+			</c:when>
+			<c:otherwise>
+				<button type="button" class="btn btn-success btn-lg">술고?!</button>
+				<button type="button" class="btn btn-danger btn-lg ">Nope!</button>
+			</c:otherwise>
+		</c:choose>
 		</div>
 	</div>	
 	<br>

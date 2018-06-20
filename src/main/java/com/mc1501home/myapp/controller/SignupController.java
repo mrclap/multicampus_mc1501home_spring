@@ -66,7 +66,7 @@ public class SignupController {
 			paramMap.put("action", action);
 		} else if ("insert".equalsIgnoreCase(action)) {
 			service.saveObject("", paramMap);
-			viewName = "/";
+			viewName = "index";
 		}
 			
 		/*if(forwardView != null){

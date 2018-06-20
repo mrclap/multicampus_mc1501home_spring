@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="principalName" value="${pageContext.request.userPrincipal.name}"/>
 
 <html>
 <head>
@@ -41,10 +42,19 @@
                   </ul>
                 </li -->
               <!--  leftside nav bar -->
+              
               </ul>
               <ul class="nav navbar-nav navbar-right">
 			     <li><a href="<c:url value='/signup/signup'/>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+			    <c:choose>
+			    <c:when test="${null eq pricipalName and !empty principalName}">
+			     <li><a href="<c:url value='/j_spring_security_logout' />"><span class="glyphicon glyphicon-log-out"></span> ${principalName } Logout</a></li>
+			    </c:when>
+			    <c:otherwise>
 			     <li><a href="<c:url value='/login/login'/>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+			    </c:otherwise>
+				</c:choose>
+				
 		      </ul>              
             </div>
           </div>
