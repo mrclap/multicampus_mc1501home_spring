@@ -25,9 +25,16 @@ public class SignupService {
 	}
 	
 	public Object saveObject(String sqlMapId, Object dataMap) {
+		
 		sqlMapId = "signup.insert";
+		//Map<String, Object> resultMap = (Map)dataMap;
 		((Map)dataMap).put("USER_SEQ", util.getUniqueSequence());
 		Object resultKey = dao.saveObject(sqlMapId, dataMap);
+		
+		sqlMapId = "auth.insert";
+		Object resultKey1 = dao.saveObject(sqlMapId, dataMap);
+		
+		
 		return resultKey;
 	}
 	

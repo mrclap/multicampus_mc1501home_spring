@@ -247,14 +247,12 @@
 		<div class="form-group">
 			<label for="inputauthority" class="col-sm-2 control-label">Authorirty</label>
 			<div class="col-sm-9">
-				<div class="btn-group btn-group-toggle" data-toggle="buttons"
-					id="inputAuthority">
+				<div class="btn-group btn-group-toggle" data-toggle="buttons" id="inputAuthority">
 					<select name="AUTH_SEQ">
-						<option value="5000">ANONYMOUS</option>
-						<option value="5001">INSTRUCTOR</option>
-						<option value="5002">STUDENT</option>
-						<option value="5003">MANAGER</option>
-						<option value="5004">ADMIN</option>
+						<option value="5000">ADMIN</option>
+						<option value="5001">MANAGER</option>
+						<option value="5002">CEO</option>
+						<option value="5003">GUEST</option>
 					</select>
 				</div>
 			</div>

@@ -49,10 +49,9 @@ public class SignupController {
 //		
 //		return modelandView;
 //	}
-	
 	@RequestMapping(value = MAPPING+"{action}", method = { RequestMethod.GET, RequestMethod.POST })
-	public ModelAndView actionMethod(@RequestParam Map<String, Object> paramMap, @PathVariable String action,
-			ModelAndView modelandView) {
+	public ModelAndView actionMethod(@RequestParam Map<String, Object> paramMap, 
+			@PathVariable String action,ModelAndView modelandView) {
 
 		String viewName = MAPPING + action ;
 		String forwardView = (String) paramMap.get("forwardView") ;
@@ -67,10 +66,7 @@ public class SignupController {
 			paramMap.put("action", action);
 		} else if ("insert".equalsIgnoreCase(action)) {
 			service.saveObject("", paramMap);
-			viewName = "index";
-			
-			
-			
+			viewName = "/";
 		}
 			
 		/*if(forwardView != null){
