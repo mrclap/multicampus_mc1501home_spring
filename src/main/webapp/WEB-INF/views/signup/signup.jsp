@@ -5,7 +5,7 @@
     <script src="<c:url value='/resources/js/jquery-3.3.1.min.js'/>"></script>
     <!-- signup js -->
     
-    <script>
+   <!--  <script>
     // email checker
     function email_check( email ) {
         
@@ -99,7 +99,7 @@
     		});
     	});
     	   
-    </script>
+    </script> -->
     
     <!-- signup js over -->
     <!-- ********************************************** -->
@@ -129,7 +129,7 @@
 	  <div class="form-group" id="email">
 	    <label for="inputEmail" class="col-sm-2 control-label">Email</label>
 	    <div class="col-sm-9">
-	      <input type="email" name="USER_ID" class="form-control" id="inputEmail" placeholder="Email" value="">
+	      <input type="text" name="USER_ID" class="form-control" id="inputEmail" placeholder="Email" value="">
 	      <span id="emailCheckSymbol"></span>
 	      <span id="emailCheckSymbolStatus"></span>
 		  <p class="col-sm-1"></p>
@@ -140,7 +140,7 @@
 	  <div class="form-group" id="emailCheck">
 	    <label for="inputEmailCheck" class="col-sm-2 control-label">Check-Email</label>
 	    <div class="col-sm-9">
-	      <input type="email" name="emailCheck" class="form-control" id="inputEmailCheck" placeholder="Check-Email">
+	      <input type="text" name="emailCheck" class="form-control" id="inputEmailCheck" placeholder="Check-Email">
 	      <span id="emailCheckCheckSymbol"></span>
 	      <span id="emailCheckCheckSymbolStatus"></span>
 	      <p class="col-sm-1"></p>
@@ -249,7 +249,7 @@
 			<div class="col-sm-9">
 				<div class="btn-group btn-group-toggle" data-toggle="buttons"
 					id="inputAuthority">
-					<select name="Authority">
+					<select name="AUTH_SEQ">
 						<option value="5000">ANONYMOUS</option>
 						<option value="5001">INSTRUCTOR</option>
 						<option value="5002">STUDENT</option>
