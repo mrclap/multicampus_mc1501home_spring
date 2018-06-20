@@ -10,7 +10,6 @@ import com.mc1501home.myapp.util.CommonUtil;
 
 @Service
 public class SulgoService {
-	
 	@Autowired
 	private SulgoDao dao;
 	
