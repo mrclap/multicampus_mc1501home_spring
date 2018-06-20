@@ -32,8 +32,10 @@ public class SignupService {
 		Object resultKey = dao.saveObject(sqlMapId, dataMap);
 		
 		sqlMapId = "auth.insert";
-		Object resultKey1 = dao.saveObject(sqlMapId, dataMap);
+		Object resultkey1 = dao.saveObject(sqlMapId, dataMap);
 		
+		sqlMapId = "hobby.insert";
+		Object resultKey2 = dao.saveObject(sqlMapId, dataMap);
 		
 		return resultKey;
 	}
