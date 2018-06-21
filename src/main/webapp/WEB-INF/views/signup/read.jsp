@@ -29,7 +29,7 @@
 	  <div class="form-group" id="email">
 	    <label for="inputEmail" class="col-sm-2 control-label">Email</label>
 	    <div class="col-sm-9">
-	      <p class="form-control">${ resultMap.email }</p>
+	      <p class="form-control" name="USER_ID"  value="${resultMap.USER_ID}"></p>
 	      <span id="emailCheckSymbol"></span>
 	      <span id="emailCheckSymbolStatus"></span>
 		  <p class="col-sm-1"></p>
@@ -51,7 +51,7 @@
 	  <div class="form-group" id="password">
 	    <label for="inputPassword" class="col-sm-2 control-label">Password</label>
 	    <div class="col-sm-9">
-	      <p class="form-control">${ resultMap.password }</p>
+	      <p class="form-control" name="USER_PASSWORD" value="${resultMap.USER_PASSWORD}"></p>
 	      <span id="passwordCheckSymbol"></span>
 	      <span id="passwordCheckSymbolStatus"></span>
 	      <p class="col-sm-1"></p>
@@ -60,7 +60,7 @@
 	  
 	  <!-- 4. pw check -->
 	  <div class="form-group" id="passwordCheck">
-	    <label for="inputPasswordCheck" class="col-sm-2 control-label">Check-Password</label>
+	    <label for="inputPasswordCheck" class="col-sm-2 control-label"></label>
 	    <div class="col-sm-9">
 	      <p class="form-control">${ resultMap.passwordCheck }</p>
    	      <span id="passwordCheckCheckSymbol"></span>
@@ -73,7 +73,7 @@
 	  <div class="form-group">
 	    <label for="inputName" class="col-sm-2 control-label">Name</label>
 	    <div class="col-sm-9">
-	      <p class="form-control">${ resultMap.name }</p>
+	      <p class="form-control" name="USER_NAME" value="${USER_NAME}"></p>
 	      <p class="col-sm-1"></p>
 	    </div>
 	  </div>
@@ -82,7 +82,7 @@
 	  <div class="form-group">
 	    <label for="inputBirthday" class="col-sm-2 control-label">Birthday</label>
 	    <div class="col-sm-9">
-	      <p class="form-control">${ resultMap.birthday }</p>
+	      <p class="form-control" name="USER_BIRTH" value="${resultMap.BIRTH}"></p>
 	      <p class="col-sm-1"></p>
 	    </div>
 	  </div>
@@ -91,7 +91,7 @@
 	  <div class="form-group">
 	    <label for="inputTelNum" class="col-sm-2 control-label">Tel</label>
 	    <div class="col-sm-9">
-	      <p class="form-control">${ resultMap.telNum }</p>
+	      <p class="form-control" name="USER_TEL" value="${USER_TEL }"></p>
 	      <p class="col-sm-1"></p>
 	    </div>
 	  </div>
@@ -107,7 +107,7 @@
 	    <div class="col-sm-9">
 		    <div class="btn-group btn-group-toggle" data-toggle="buttons" id="inputAddr">
 			<label class="btn btn-secondary active">
-		    	<p class="form-control">${ resultMap.addr }</p>
+		    	<p class="form-control" name="ADDRESS_SEQ" value="${resultMap.ADDRESS_SEQ}"></p>
 		 	</label>
 		</div>
 	      <p class="col-sm-1"></p>

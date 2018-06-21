@@ -248,6 +248,7 @@
 			<label for="inputauthority" class="col-sm-2 control-label">Authorirty</label>
 			<div class="col-sm-9">
 				<div class="btn-group btn-group-toggle" data-toggle="buttons" id="inputAuthority">
+				<label class="btn btn-secondary">
 					<select name="AUTH_SEQ">
 						<option value="5000">ADMIN</option>
 						<option value="5001">MANAGER</option>

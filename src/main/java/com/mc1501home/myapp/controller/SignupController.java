@@ -23,32 +23,11 @@ public class SignupController {
 	
 	
 	private final static String MAPPING = "signup/";
-	private final static String MAPP ="/myapp";
 	
 	@Autowired
 	private SignupService service;
 
-//	@RequestMapping(value="/{action}", method= {RequestMethod.GET, RequestMethod.POST} )
-//	public ModelAndView actionMethod(@RequestParam Map<String, Object> paramMap,
-//							@PathVariable String action, ModelAndView modelandView) {
-//		String viewName = "signup";
-//		Map<String, Object> resultMap = new HashMap<String, Object>();
-//		
-//		if("read".equalsIgnoreCase(action)) {
-//			resultMap = (Map<String, Object>) service.getObject("", paramMap);
-//			modelandView.addObject("resultMap", resultMap);
-//			action = "/read";
-//		} else{
-//			//ȸ������â���� �̵�
-//			System.out.println("Entering signup mode");
-//			action = "/signup";
-//		}
-//			
-//		viewName = viewName + action;
-//		modelandView.setViewName(viewName);
-//		
-//		return modelandView;
-//	}
+
 	@RequestMapping(value = MAPPING+"{action}", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView actionMethod(@RequestParam Map<String, Object> paramMap, 
 			@PathVariable String action,ModelAndView modelandView) {
@@ -59,7 +38,7 @@ public class SignupController {
 		Map<String, Object> resultMap = new HashMap<String, Object>() ;
 		List<Object> resultList = new ArrayList<Object>();
 
-		// divided depending on action value
+	
 		if ("signup".equalsIgnoreCase(action)) {
 		} else if ("update".equalsIgnoreCase(action)) {
 			resultMap = (Map<String, Object>) service.getObject("", paramMap);
