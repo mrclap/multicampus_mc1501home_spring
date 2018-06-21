@@ -32,25 +32,29 @@
 	        <br>
 	  </div>
     </div>
-
+	
+	
+	<form class="form-horizontal" action="<c:url value='/sul-go/merge' />" method='POST'>
 	<div class="container">
 	  <div class="row text-center">
+	  	<input type="hidden" name="USER_SEQ" value="${resultMap.USER_SEQ }"/>
 	  	<c:choose>
 	  		<c:when test="${'2' eq resultMap.SULGO_FLAG }">
 				<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-				<button type="button" class="btn btn-success btn-lg"><a href="<c:url value = '/'/>">술고?!</a></button>
+				<button type="submit" class="btn btn-success btn-lg" formaction="<c:url value='/sul-go/merge?SULGO_FLAG=1'/>">술고?!</button>
 			</c:when>		
 			<c:when test="${'1' eq resultMap.SULGO_FLAG }">
 				<!-- Indicates a dangerous or potentially negative action -->
-				<button type="button" class="btn btn-danger btn-lg ">Nope!</button>
+				<button type="submit" class="btn btn-danger btn-lg" formaction="<c:url value='/sul-go/merge?SULGO_FLAG=2'/>">Nope!</button>
 			</c:when>
 			<c:otherwise>
-				<button type="button" class="btn btn-success btn-lg">술고?!</button>
-				<button type="button" class="btn btn-danger btn-lg ">Nope!</button>
+				<button type="submit" class="btn btn-success btn-lg" formaction="<c:url value='/sul-go/merge?SULGO_FLAG=1'/>">술고?!</button>
+				<button type="submit" class="btn btn-danger btn-lg" formaction="<c:url value='/sul-go/merge?SULGO_FLAG=2'/>">Nope!</button>
 			</c:otherwise>
 		</c:choose>
 		</div>
 	</div>	
+	</form>
 	<br>
 	<br>
 	<div class="text-center">

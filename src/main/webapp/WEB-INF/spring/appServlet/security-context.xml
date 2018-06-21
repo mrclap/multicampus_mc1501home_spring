@@ -10,7 +10,7 @@
 		login-processing-url="/j_spring_security_check"
 		authentication-failure-url="/login/login?fail=true"
 		username-parameter="USER_ID" password-parameter="USER_PASSWORD" />
-		<logout logout-success-url="/" logout-url="/j_spring_security_logout"
+		<logout logout-success-url="/index" logout-url="/j_spring_security_logout"
 		invalidate-session="true" delete-cookies="JSESSIONID" />
 		<csrf disabled="true"/>
        

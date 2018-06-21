@@ -6,23 +6,41 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.mc1501home.myapp.dao.SulgoDao;
+import com.mc1501home.myapp.dao.IndexDao;
 import com.mc1501home.myapp.util.CommonUtil;
 
 @Service
-public class SulgoService {
+public class IndexService {
 	@Autowired
-	private SulgoDao dao;
+	private IndexDao dao;
 	
 	@Autowired
 	private CommonUtil util;
 	
 	public Object getObject(String sqlMapId, Object dataMap) {
-		sqlMapId = "sulgo.user";
-		Object resultMap = dao.getObject(sqlMapId, dataMap);
+//		sqlMapId = "index.user";
+//		Object resultMap = dao.getObject(sqlMapId, dataMap);
+		BigDecimal nopeCount = new BigDecimal("0");
+		BigDecimal sulgoCount = new BigDecimal("0");
 		
-		sqlMapId = "sulgo.read";
-		Object resultObject = dao.getObject(sqlMapId, resultMap);
+		
+		sqlMapId = "index.sulgoCount";
+		Object resultObject = dao.getObject(sqlMapId, dataMap);
+		if(resultObject != null) {
+			sulgoCount = (BigDecimal)((Map)resultObject).get("SULGO_COUNT");
+		}
+		
+		
+		sqlMapId = "index.nopeCount";
+		Object nopeObject = dao.getObject(sqlMapId, dataMap);
+		if(nopeObject != null) {
+			nopeCount = (BigDecimal)((Map)nopeObject).get("NOPE_COUNT");
+		}
+		
+		
+		((Map)resultObject).put("SULGO_COUNT", sulgoCount);
+		((Map)resultObject).put("NOPE_COUNT", nopeCount);
+		
 		
 		return resultObject;
 	}
@@ -47,29 +65,7 @@ public class SulgoService {
 		sqlMapId = "sulgo.merge";
 		Object resultKey = dao.saveObject(sqlMapId, dataMap);
 		
-		BigDecimal nopeCount = new BigDecimal("0");
-		BigDecimal sulgoCount = new BigDecimal("0");
-		
-		
-		sqlMapId = "index.sulgoCount";
-		Object resultObject = dao.getObject(sqlMapId, dataMap);
-		if(resultObject != null) {
-			sulgoCount = (BigDecimal)((Map)resultObject).get("SULGO_COUNT");
-		}
-		
-		
-		sqlMapId = "index.nopeCount";
-		Object nopeObject = dao.getObject(sqlMapId, dataMap);
-		if(nopeObject != null) {
-			nopeCount = (BigDecimal)((Map)nopeObject).get("NOPE_COUNT");
-		}
-		
-		
-		((Map)resultObject).put("SULGO_COUNT", sulgoCount);
-		((Map)resultObject).put("NOPE_COUNT", nopeCount);
-		
-		
-		return resultObject;
+		return resultKey;
 	}
 	
 	public Object getList(String sqlMapId, Object dataMap) {
