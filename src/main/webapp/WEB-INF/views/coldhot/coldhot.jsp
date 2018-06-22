@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<c:set var="principalName" value="${pageContext.request.userPrincipal.name}"/>
 <html>
 <head>
 </head>
@@ -27,13 +27,24 @@
 	          <br>
 	    </div>
 	  </div>
-
+	<form class="form-horizontal" action="<c:url value='/coldhot/merge' />" method='POST'>
 	<div class="container">
 	  <div class="row text-center">
+	  	<input type="hidden" name="USER_SEQ" value="${resultMap.USER_SEQ }"/>
+		<c:choose>
+	  		<c:when test="${'1' eq resultMap.COLD_HOT_FLAG }">
 				<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-				<button type="button" class="btn btn-primary btn-lg">츄워요...</button>
-					
+				<button type="submit" class="btn btn-success btn-lg" formaction="<c:url value='/coldhot/merge?COLD_HOT_FLAG=2'/>">츄워요...</button>
+			</c:when>		
+			<c:when test="${'2' eq resultMap.COLD_HOT_FLAG }">
 				<!-- Indicates a dangerous or potentially negative action -->
-				<button type="button" class="btn btn-danger btn-lg ">더워요...</button>
-		</div>
+				<button type="submit" class="btn btn-danger btn-lg" formaction="<c:url value='/coldhot/merge?COLD_HOT_FLAG=1'/>">더워요...</button>
+			</c:when>
+			<c:otherwise>
+				<button type="submit" class="btn btn-success btn-lg" formaction="<c:url value='/coldhot/merge?COLD_HOT_FLAG=2'/>">츄워요...</button>
+				<button type="submit" class="btn btn-danger btn-lg" formaction="<c:url value='/coldhot/merge?COLD_HOT_FLAG=1'/>">더워요...</button>
+			</c:otherwise>
+		</c:choose>
+	   </div>
 	</div>	
+	</form>

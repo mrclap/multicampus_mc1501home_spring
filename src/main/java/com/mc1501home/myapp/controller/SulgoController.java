@@ -42,6 +42,7 @@ public class SulgoController {
 			if(principal != null) {
 				paramMap.put("USER_ID", principal.getName());
 				resultMap = (Map<String, Object>)service.getObject("", paramMap);
+				resultList = (List<Object>)service.getList("", paramMap);
 			}
 		} else if("merge".equals(action)) {
 			if(principal != null) {

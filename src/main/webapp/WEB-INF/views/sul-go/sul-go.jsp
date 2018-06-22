@@ -3,8 +3,17 @@
 
 <html>
 <head>
+
+
 </head>
 <body>
+<script>
+	$(function(){
+		$("#layerModal").click(function(){
+			$("#myModal").modal();
+		});
+	});
+</script>
     <!-- Carousel
     ================================================== -->
     <div class="carousel" style="height:250px; margin-bottom: 20px;">
@@ -58,25 +67,45 @@
 	<br>
 	<br>
 	<div class="text-center">
-		<div class="dropdown" >
 		  
 		  <!-- 2명 이상이 술고 버튼을 누르지 않앗을 때에는 
 		  <button class="btn btn-secondary dropdown-toggle disabled" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		    오늘의 술고 전사 보기
 		  </button>  
 		     -->
-		  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		  <button class="btn btn-secondary" type="button" id="layerModal">
 		    오늘의 술고 전사 보기
 		  </button>
-		  
-		  
-		  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-		    
-		    <p class="dropdown-item text-center">김봉남</p>
-		    <p class="dropdown-item text-center">이말숙</p>
-		    <p class="dropdown-item text-center">박준홍</p>
-		  </div>
-		</div>
 	</div>
+	
+	<div class = "modal fade" id = "myModal">
+        	<div class = "modal-dialog">
+        		<div class = "modal-content">
+        			<div class = "modal-header">
+        				<button type = "button" class = "close" data-dismiss = "modal">x</button>
+        				<h4 class = "modal-title" id = "myModalLabel">바~로 달립니다!</h4>	
+        			</div>
+        			<div class = "modal-body">
+					   <table class="table table-hover" style="width:100%;">
+					     <thead>
+					       <tr>
+					         <th class="text-center">오늘의 술고전사!</th>
+					       </tr>
+					     </thead>
+					     <tbody>
+							<c:forEach items="${resultList}" var="resultData" varStatus="loop">
+								<tr class="${(loop.index+1)%2 == 2 ? 'odd gradeX' : 'even gradeC'}">
+									<td class="text-center">${resultData.USER_NAME }</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					   </table>
+        			</div>
+        			<div class = "modal-footer">
+        				<button type = "button" data-dismiss = "modal">Close</button>
+        			</div>
+        		</div>
+        	</div>
+   </div>
    </body>
    </html>

@@ -6,22 +6,22 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.mc1501home.myapp.dao.SulgoDao;
+import com.mc1501home.myapp.dao.ColdhotDao;
 import com.mc1501home.myapp.util.CommonUtil;
 
 @Service
-public class SulgoService {
+public class ColdhotService {
 	@Autowired
-	private SulgoDao dao;
+	private ColdhotDao dao;
 	
 	@Autowired
 	private CommonUtil util;
 	
 	public Object getObject(String sqlMapId, Object dataMap) {
-		sqlMapId = "sulgo.user";
+		sqlMapId = "coldhot.user";
 		Object resultMap = dao.getObject(sqlMapId, dataMap);
 		
-		sqlMapId = "sulgo.read";
+		sqlMapId = "coldhot.read";
 		Object resultObject = dao.getObject(sqlMapId, resultMap);
 		
 		return resultObject;
@@ -39,34 +39,37 @@ public class SulgoService {
 	
 	public Object saveObject(String sqlMapId, Object dataMap) {
 		if(((Map)dataMap).get("USER_SEQ") == null || ((Map)dataMap).get("USER_SEQ") == "") {
-			sqlMapId = "sulgo.user";
+			sqlMapId = "coldhot.user";
 			Object resultMap = dao.getObject(sqlMapId, dataMap);
 			((Map)dataMap).put("USER_SEQ", ((Map)resultMap).get("USER_SEQ"));
 		}
 		
-		sqlMapId = "sulgo.merge";
+		sqlMapId = "coldhot.merge";
 		Object resultKey = dao.saveObject(sqlMapId, dataMap);
 		
-		BigDecimal nopeCount = new BigDecimal("0");
-		BigDecimal sulgoCount = new BigDecimal("0");
+		BigDecimal coldCount = new BigDecimal("0");
+		BigDecimal hotCount = new BigDecimal("0");
 		
 		
-		sqlMapId = "index.sulgoCount";
+		sqlMapId = "index.hotCount";
 		Object resultObject = dao.getObject(sqlMapId, dataMap);
 		if(resultObject != null) {
-			sulgoCount = (BigDecimal)((Map)resultObject).get("SULGO_COUNT");
+			hotCount = (BigDecimal)((Map)resultObject).get("HOT_COUNT");
 		}
 		
 		
-		sqlMapId = "index.nopeCount";
-		Object nopeObject = dao.getObject(sqlMapId, dataMap);
-		if(nopeObject != null) {
-			nopeCount = (BigDecimal)((Map)nopeObject).get("NOPE_COUNT");
+		sqlMapId = "index.coldCount";
+		Object coldObject = dao.getObject(sqlMapId, dataMap);
+		if(coldObject != null) {
+			coldCount = (BigDecimal)((Map)coldObject).get("COLD_COUNT");
 		}
 		
+		BigDecimal coldhotCount = hotCount.subtract(coldCount);
 		
-		((Map)resultObject).put("SULGO_COUNT", sulgoCount);
-		((Map)resultObject).put("NOPE_COUNT", nopeCount);
+		
+		((Map)resultObject).put("HOT_COUNT", hotCount);
+		((Map)resultObject).put("COLD_COUNT", coldCount);
+		((Map)resultObject).put("COLD_HOT_COUNT", coldhotCount);
 		
 		
 		return resultObject;

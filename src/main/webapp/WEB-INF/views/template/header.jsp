@@ -19,6 +19,7 @@
 
     <!-- Custom styles for this template -->
     <link href="<c:url value='/resources/css/carousel.css'/>" rel="stylesheet">
+    <script src="<c:url value='/resources/js/jquery-3.3.1.min.js'/>" ></script>
 </head>
     
 </head>

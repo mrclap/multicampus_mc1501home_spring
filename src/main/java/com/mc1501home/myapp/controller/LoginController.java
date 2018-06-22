@@ -31,7 +31,7 @@ public class LoginController {
 			viewName = viewName + action;
 			resultMap = paramMap;
 		}else if("logout".equals(action)){
-			viewName = "/index";
+			viewName = "index";
 			resultMap = paramMap;
 		}else {
 			viewName = viewName+"login";

@@ -4,14 +4,8 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
-<mapper namespace="sulgo">
+<mapper namespace="coldhot">
 	<select id="list" resultType="Map" parameterType="Map" timeout="10">
-		select
-			U2.USER_NAME as USER_NAME
-		from SULGO S1, USERS U2
-		where S1.USER_SEQ = U2.USER_SEQ
-		and S1.SULGO_FLAG = 1
-		and S1.SULGO_DATE = to_char(sysdate, 'YY/MM/DD')
 	</select>
 	
 	<select id="user" resultType="Map" parameterType="Map">
@@ -24,11 +18,11 @@
 	<select id="read" resultType="Map" parameterType="Map">
 		select 
 			USER_SEQ
-			, SULGO_DATE
-			, SULGO_FLAG
-		from SULGO
+			, COLD_HOT_DATE
+			, COLD_HOT_FLAG
+		from COLD_HOT
 		where USER_SEQ = #{USER_SEQ}
-		and SULGO_DATE = to_char(sysdate,'YY/MM/DD')
+		and COLD_HOT_DATE = to_char(sysdate,'YY/MM/DD')
 	</select>
 
 	<insert id="merge" parameterType="Map">
@@ -43,22 +37,22 @@
 			WHERE MEMBER_SEQ = #{MEMBER_SEQ}
 		</selectKey-->
 	
-		MERGE INTO SULGO S1
-		     USING (SELECT #{USER_SEQ} AS USER_SEQ, to_char(sysdate,'YY/MM/DD') AS SULGO_DATE FROM DUAL) U2
-		        ON (S1.USER_SEQ = U2.USER_SEQ AND S1.SULGO_DATE = U2.SULGO_DATE)
+		MERGE INTO COLD_HOT C1
+		     USING (SELECT #{USER_SEQ} AS USER_SEQ, to_char(sysdate,'YY/MM/DD') AS COLD_HOT_DATE FROM DUAL) U2
+		        ON (C1.USER_SEQ = U2.USER_SEQ AND C1.COLD_HOT_DATE = U2.COLD_HOT_DATE)
 		 WHEN MATCHED THEN
 		    UPDATE SET
-				SULGO_FLAG = #{SULGO_FLAG}
+				COLD_HOT_FLAG = #{COLD_HOT_FLAG}
 		 WHEN NOT MATCHED THEN
 		    INSERT (
 				USER_SEQ
-				, SULGO_DATE
-				, SULGO_FLAG
+				, COLD_HOT_DATE
+				, COLD_HOT_FLAG
 			)
 			values(
 				#{USER_SEQ}
 				, sysdate
-				, #{SULGO_FLAG}
+				, #{COLD_HOT_FLAG}
 			)
 	</insert>
 

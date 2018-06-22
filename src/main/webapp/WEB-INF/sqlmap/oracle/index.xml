@@ -32,6 +32,24 @@
 		group by SULGO_FLAG
 		having SULGO_FLAG = 2
 	</select>
+	
+	<select id="hotCount" resultType="Map" parameterType="Map">
+		select 
+			count(COLD_HOT_FLAG) as HOT_COUNT
+		from COLD_HOT
+		where COLD_HOT_DATE = to_char(sysdate,'YY/MM/DD')
+		group by COLD_HOT_FLAG
+		having COLD_HOT_FLAG = 1
+	</select>
+	
+	<select id="coldCount" resultType="Map" parameterType="Map">
+		select 
+			count(COLD_HOT_FLAG) as COLD_COUNT
+		from COLD_HOT
+		where COLD_HOT_DATE = to_char(sysdate,'YY/MM/DD')
+		group by COLD_HOT_FLAG
+		having COLD_HOT_FLAG = 2
+	</select>
 
 	<insert id="merge" parameterType="Map">
 	</insert>

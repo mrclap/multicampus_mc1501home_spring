@@ -1,41 +1,75 @@
 package com.mc1501home.myapp.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
+import java.security.Principal;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Locale;
+import java.util.List;
 import java.util.Map;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mc1501home.myapp.service.ColdhotService;
+
 /**
  * Handles requests for the application home page.
  */
 @Controller
-@RequestMapping(value="coldhot", method= {RequestMethod.GET, RequestMethod.POST})
 public class ColdhotController {
 	
-	@RequestMapping(value="/{action}", method= {RequestMethod.GET, RequestMethod.POST})
-	public ModelAndView edit(@RequestParam Map<String, Object> paramMap, @PathVariable String action, ModelAndView modelandView) {
-		String viewName="coldhot/";
-		Map<String, Object> resultMap = new HashMap<String, Object>();
-		if("coldhot".equalsIgnoreCase(action)) {
-			viewName = viewName + action;
-			resultMap = paramMap;
-		}else {
-			viewName = viewName+"coldhot";
+private final static String MAPPING = "coldhot/";
+	
+	@Autowired
+	private ColdhotService service;
+	
+	@RequestMapping(value = MAPPING+"{action}", method = { RequestMethod.GET, RequestMethod.POST })
+	public ModelAndView actionMethod(@RequestParam Map<String, Object> paramMap, @PathVariable String action,
+			ModelAndView modelandView, Principal principal) {
+
+		String viewName = MAPPING + action;
+		String forwardView = (String) paramMap.get("forwardView") ;
+
+		Map<String, Object> resultMap = new HashMap<String, Object>() ;
+		List<Object> resultList = new ArrayList<Object>();
+
+		// divided depending on action value
+		if ("coldhot".equalsIgnoreCase(action)) {
+			if(principal != null) {
+				paramMap.put("USER_ID", principal.getName());
+				resultMap = (Map<String, Object>)service.getObject("", paramMap);
+				resultList = (List<Object>)service.getList("", paramMap);
+			}
+		} else if("merge".equals(action)) {
+			if(principal != null) {
+				paramMap.put("USER_ID", principal.getName());
+				resultMap = (Map)service.saveObject("", paramMap);
+				
+			}
+			viewName = "index";
 		}
+			
 		
+		
+		else {
+			viewName = MAPPING + "sul-go";
+		}
+			
+
+		if(forwardView != null){
+			viewName = forwardView;
+		}
+
 		modelandView.setViewName(viewName);
+
+		modelandView.addObject("paramMap", paramMap);
 		modelandView.addObject("resultMap", resultMap);
+		modelandView.addObject("resultList", resultList);
+
 		return modelandView;
 	}
 }
