@@ -38,6 +38,12 @@ public class BoardService {
 	}
 	
 	public Object saveObject(String sqlMapId, Object dataMap) {
+		if(((Map)dataMap).get("USER_SEQ") == null || ((Map)dataMap).get("USER_SEQ") == "") {
+			sqlMapId = "board.user";
+			Object resultMap = dao.getObject(sqlMapId, dataMap);
+			((Map)dataMap).put("USER_SEQ", ((Map)resultMap).get("USER_SEQ"));
+		}
+		
 		sqlMapId = "board.insert";
 		Map<String, Object>resultMap = (Map)dataMap;
 		

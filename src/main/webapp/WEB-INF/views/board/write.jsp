@@ -41,18 +41,10 @@
 	               <td><textarea cols="10" placeholder="내용을 입력하세요. " name="BOARD_DESCIPT" class="form-control" style="height:300px;"></textarea></td>
 	           </tr>
 	           <tr>
-	               <th>첨부파일: </th>
-	               <td><input type="text" placeholder="파일을 선택하세요. " name="filename" class="form-control"/></td>
-	           </tr>
-	           <tr>
-	               <th>비밀번호: </th>
-	               <td><input type="password" placeholder="비밀번호를 입력하세요" class="form-control"/></td>
-	           </tr>
-	           <tr>
 	               <td colspan="2">
 	                   <input type="submit" value="등록" onclick="sendData()" class="btn btn-default pull-right"/>
 	                   <input type="button" value="RESET" class="btn btn-default pull-left"/>
-	                   <a class="btn btn-default pull-right" href="./board.html">글 목록</a>
+	                   <a class="btn btn-default pull-right" href="<c:url value = '/board/board'/>">글 목록</a>
 	               </td>
 	           </tr>
 	       </form>

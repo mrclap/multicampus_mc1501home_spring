@@ -17,8 +17,8 @@
     </div>
     <!-- Marketing messaging and featurettes
     ================================================== -->
-   <!--게시판 목록 -->
-    <!-- 타이틀  -->
+   <!--ê²ìí ëª©ë¡ -->
+    <!-- íì´í  -->
 	<h2 class="text-center" style="margin-bottom:20px;">Board</h2>
 	  <div class="row justify-content-md-center">
 	    <div class="col-md-auto text-center">
@@ -34,22 +34,20 @@
 	       <form action="<c:url value = '/board/update'/>" method="post" encType="multiplart/form-data">
 	       		<input type = "hidden" name = "BOARD_SEQ" value = "${resultMap.BOARD_SEQ }"/>
 	       		<input type = "hidden" name = "USER_SEQ" value = "${resultMap.USER_SEQ }"/>
-	       		<input type = "hidden" name = "BOARD_TITLE" value = "${resultMap.BOARD_TITLE }"/>
-	       		<input type = "hidden" name = "BOARD_DESCIPT" value = "${resultMap.BOARD_DESCIPT }"/>
 	       		
 	           <tr>
 	               <th>제목: </th>
-	               <td><input type="text" disabled name="BOARD_TITLE" class="form-control" value = "${resultMap.BOARD_TITLE }"/></td>
+	               <td><input type="text" name="BOARD_TITLE" class="form-control" value = "${resultMap.BOARD_TITLE }"/></td>
 	           </tr>
 	           <tr>
 	               <th>내용: </th>
-	               <td><textarea cols="10" disabled name="BOARD_DESCIPT" value="${resultMap.BOARD_DESCIPT }" class="form-control" style="height:300px;">${resultMap.BOARD_DESCIPT }</textarea></td>
+	               <td><textarea cols="10" name="BOARD_DESCIPT" class="form-control" style="height:300px;">${resultMap.BOARD_DESCIPT }</textarea></td>
 	           </tr>
 	           <tr>
 	               <td colspan="2">
-	               	   <input type="submit" value="수정" onclick="sendData()" formaction="<c:url value='/board/modify'/>" class="btn btn-default pull-right"/>
+	               	   <input type="submit" value="수정" onclick="sendData()" formaction="<c:url value='/board/update'/>" class="btn btn-default pull-right"/>
 	               	   <input type="submit" value="삭제" onclick="sendData()" formaction="<c:url value='/board/delete'/>" class="btn btn-default pull-right"/>
-	               	   <input type="submit" value="글 목록" onclick="sendData()" formaction="<c:url value='/board/board'/>" class="btn btn-default pull-right"/>
+	               	   <input type="submit" value="글 목록" onclick="sendData()" formaction="<c:url value='/board/board'/>" class="btn btn-default pull-right"/>
 	                   <!-- <input type="button" value="RESET" class="btn btn-default pull-left"/> -->
 	               </td>
 	           </tr>

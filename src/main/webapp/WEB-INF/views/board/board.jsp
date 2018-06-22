@@ -44,13 +44,15 @@
 						<c:forEach items="${resultList}" var="resultData" varStatus="loop">
 							<tr
 								class="${(loop.index+1)%2 == 2 ? 'odd gradeX' : 'even gradeC'}">
-								<td>${resultData.BOARD_SEQ }</td>
-								<td><a
+								<input type="hidden" name ="USER_SEQ" value="${resultData.USER_SEQ }"/>
+								<input type="hidden" name ="BOARD_SEQ" value="${resultData.BOARD_SEQ }"/>
+								<td class="text-center">${loop.index+1 }</td>
+								<td class="text-center"><a
 									href="<c:url value="/board/read?USER_SEQ=${resultData.USER_SEQ }&BOARD_SEQ=${resultData.BOARD_SEQ }" />">
 										${resultData.BOARD_TITLE}</a></td>
-								<td>${resultData.USER_SEQ}</td>
-								<td>${resultData.BOARD_DATE}</td>
-								<td>${resultData.BOARD_VIEW}</td>
+								<td class="text-center">${resultData.USER_SEQ}</td>
+								<td class="text-center">${resultData.BOARD_DATE}</td>
+								<td class="text-center">${resultData.BOARD_VIEW}</td>
 							</tr>
 						</c:forEach>
 					</tbody>

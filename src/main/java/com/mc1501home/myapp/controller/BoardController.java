@@ -1,18 +1,13 @@
 package com.mc1501home.myapp.controller;
 
-import java.text.DateFormat;
+import java.security.Principal;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -52,7 +47,7 @@ public class BoardController {
 	
 	@RequestMapping(value = MAPPING+"{action}", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView actionMethod(@RequestParam Map<String, Object> paramMap, @PathVariable String action,
-			ModelAndView modelandView) {
+			ModelAndView modelandView, Principal principal) {
 
 		String viewName = MAPPING + action;
 		String forwardView = (String) paramMap.get("forwardView") ;
@@ -63,8 +58,11 @@ public class BoardController {
 		// divided depending on action value
 		if ("write".equalsIgnoreCase(action)) {
 		} else if ("insert".equalsIgnoreCase(action)) {
-			resultList = (List<Object>) service.saveObject("", paramMap);
-			viewName = MAPPING + "board";
+			if(principal != null) {
+				paramMap.put("USER_ID", principal.getName());
+				resultList = (List<Object>)service.saveObject("", paramMap);
+				viewName = MAPPING + "board";
+			}
 		} else if ("update".equalsIgnoreCase(action)) {
 			resultMap = (Map<String, Object>) service.updateObject("", paramMap);
 			viewName = MAPPING + "read";
@@ -75,6 +73,8 @@ public class BoardController {
 		} else if ("delete".equalsIgnoreCase(action)) {
 			resultList = (List<Object>) service.deleteObject("", paramMap);
 			viewName = MAPPING + "board";
+		} else if ("modify".equalsIgnoreCase(action)) {
+			resultMap = paramMap;
 		} 
 
 		if(forwardView != null){
