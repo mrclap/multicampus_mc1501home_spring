@@ -40,13 +40,13 @@ public class IndexController {
 		// divided depending on action value
 		if ("index".equalsIgnoreCase(action)) {
 			if(principal != null) {
-				paramMap.put("USER_ID", principal.getName());
+				paramMap.put("USER_SEQ", principal.getName());
 				resultMap = (Map<String, Object>)service.getObject("", paramMap);
 			}
 			viewName = "index";
 		} else if("merge".equals(action)) {
 			if(principal != null) {
-				paramMap.put("USER_ID", principal.getName());
+				paramMap.put("USER_SEQ", principal.getName());
 				service.saveObject("", paramMap);
 				viewName = "index";
 			}

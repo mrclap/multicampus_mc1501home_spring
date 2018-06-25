@@ -59,7 +59,7 @@ public class BoardController {
 		if ("write".equalsIgnoreCase(action)) {
 		} else if ("insert".equalsIgnoreCase(action)) {
 			if(principal != null) {
-				paramMap.put("USER_ID", principal.getName());
+				paramMap.put("USER_SEQ", principal.getName());
 				resultList = (List<Object>)service.saveObject("", paramMap);
 				viewName = MAPPING + "board";
 			}

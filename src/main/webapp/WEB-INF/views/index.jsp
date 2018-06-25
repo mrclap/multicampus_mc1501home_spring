@@ -45,7 +45,7 @@
           
           <img class="img-circle" src="<c:url value='/resources/images/sul-go_greenlight.png'/>" alt="sssoju" width="140" height="140">
           <h2>술고!!!</h2>
-          <%-- <p>sul-go indicator가 <초록/빨강>으로 빛나고 있습니다. 현재${resultMap.SULGO_COUNT }명이 sul-go!를 외쳤습니다. 아래의 버튼을 클릭하여 sul-go 멤버를 확인하세요. </p> --%>
+          <p>현재  ${resultMap.SULGO_COUNT }명이 sul-go!를 외쳤습니다.<br/>아래의 버튼을 클릭하여 sul-go 멤버를 확인하세요. </p>
          </c:otherwise>
         </c:choose>
           <p><a class="btn btn-default" href="<c:url value='/sul-go/sul-go'/>" role="button">View details »</a></p>
@@ -56,14 +56,17 @@
           	<c:when test="${resultMap.COLD_HOT_COUNT le -1 }">
           		<img class="img-circle" src="<c:url value='/resources/images/cold.png'/>" alt="cold" width="140" height="140">
           		<h2>츄워요..</h2>
+          		<p>냉방병 걸리겠어</p>
           	</c:when>
           	<c:when test="${resultMap.COLD_HOT_COUNT ge 1 }">
           		<img class="img-circle" src="<c:url value='/resources/images/hot.gif'/>" alt="hot" width="140" height="140">
-          		<h2>더워요..</h2> 
+          		<h2>더워요..</h2>
+          		<p>땀띠나겠어</p> 
           	</c:when>
           	<c:otherwise>
           		<img class="img-circle" src="<c:url value='/resources/images/happy.gif'/>" alt="happy" width="140" height="140">
           		<h2>딱좋아요!</h2>
+          		<p>뽀송뽀송</p>
           	</c:otherwise>
           </c:choose>
           <p><a class="btn btn-default" href="<c:url value='/coldhot/coldhot'/>" role="button">View details »</a></p>

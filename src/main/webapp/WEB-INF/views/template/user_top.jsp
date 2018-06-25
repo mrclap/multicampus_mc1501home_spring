@@ -5,6 +5,8 @@
 <head>
 </head>
 <body>
+
+
 <!-- Nav -->
     <div class="navbar-wrapper">
       <div class="container">
@@ -20,7 +22,7 @@
               </button>
               <a class="navbar-brand" href="<c:url value='/index'/>">MC1501Group</a>
             </div>
-            <div id="navbar" class="navbar-collapse collapse">
+            <div id="navbar" class="navbar-collapse collapse fixednav">
               <ul class="nav navbar-nav">
                 <li class="active"><a href="<c:url value='/index'/>">Home</a></li>
                 <li><a href="<c:url value='/board/board'/>">Board</a></li>
@@ -48,7 +50,7 @@
 			     <li><a href="<c:url value='/signup/signup'/>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 			    <c:choose>
 			    <c:when test="${null eq pricipalName and !empty principalName}">
-			     <li><a href="<c:url value='/j_spring_security_logout' />"><span class="glyphicon glyphicon-log-out"></span> ${principalName } Logout</a></li>
+			     <li><a href="<c:url value='/j_spring_security_logout' />"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 			    </c:when>
 			    <c:otherwise>
 			     <li><a href="<c:url value='/login/login'/>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>

@@ -40,13 +40,13 @@ private final static String MAPPING = "coldhot/";
 		// divided depending on action value
 		if ("coldhot".equalsIgnoreCase(action)) {
 			if(principal != null) {
-				paramMap.put("USER_ID", principal.getName());
+				paramMap.put("USER_SEQ", principal.getName());
 				resultMap = (Map<String, Object>)service.getObject("", paramMap);
 				resultList = (List<Object>)service.getList("", paramMap);
 			}
 		} else if("merge".equals(action)) {
 			if(principal != null) {
-				paramMap.put("USER_ID", principal.getName());
+				paramMap.put("USER_SEQ", principal.getName());
 				resultMap = (Map)service.saveObject("", paramMap);
 				
 			}

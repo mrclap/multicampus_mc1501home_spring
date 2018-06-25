@@ -19,10 +19,10 @@ public class BoardService {
 	
 	public Object getObject(String sqlMapId, Object dataMap) {
 		sqlMapId = "board.viewup";
-		Object resultObject = dao.getObject(sqlMapId, dataMap);
+		Object resultKey = dao.updateObject(sqlMapId, dataMap);
 		
 		sqlMapId = "board.read";
-		resultObject = dao.getObject(sqlMapId, dataMap);
+		Object resultObject = dao.getObject(sqlMapId, dataMap);
 		
 		return resultObject;
 	}
@@ -38,11 +38,11 @@ public class BoardService {
 	}
 	
 	public Object saveObject(String sqlMapId, Object dataMap) {
-		if(((Map)dataMap).get("USER_SEQ") == null || ((Map)dataMap).get("USER_SEQ") == "") {
-			sqlMapId = "board.user";
-			Object resultMap = dao.getObject(sqlMapId, dataMap);
-			((Map)dataMap).put("USER_SEQ", ((Map)resultMap).get("USER_SEQ"));
-		}
+//		if(((Map)dataMap).get("USER_SEQ") == null || ((Map)dataMap).get("USER_SEQ") == "") {
+//			sqlMapId = "board.user";
+//			Object resultMap = dao.getObject(sqlMapId, dataMap);
+//			((Map)dataMap).put("USER_SEQ", ((Map)resultMap).get("USER_SEQ"));
+//		}
 		
 		sqlMapId = "board.insert";
 		Map<String, Object>resultMap = (Map)dataMap;

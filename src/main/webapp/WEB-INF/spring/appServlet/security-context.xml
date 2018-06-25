@@ -17,7 +17,10 @@
        
        <!-- return boolean -->
        <intercept-url pattern="/*" access="permitAll()"/>
-       <intercept-url pattern="/board/*" access="hasAnyRole('ROLE_USER')"/>
+       <intercept-url pattern="/board/board" access="permitAll()"/>
+       <intercept-url pattern="/board/*" access="hasAnyRole('ROLE_USER', 'ROLE_MANAGER', 'ROLE_INSTRUCTOR', 'ROLE_ADMIN')"/>
+       <intercept-url pattern="/sul-go/*" access="hasAnyRole('ROLE_USER', 'ROLE_MANAGER', 'ROLE_INSTRUCTOR', 'ROLE_ADMIN')"/>
+       <intercept-url pattern="/coldhot/*" access="hasAnyRole('ROLE_USER', 'ROLE_MANAGER', 'ROLE_INSTRUCTOR', 'ROLE_ADMIN')"/>
        
        <!-- <intercept-url pattern="/member/list" access="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN', 'ROLE_SYSTEM')"/>
        <intercept-url pattern="/member/read" access="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN', 'ROLE_SYSTEM')"/>
@@ -34,7 +37,7 @@
 	
     <authentication-manager >
         <authentication-provider>
-           <!-- <jdbc-user-service data-source-ref="dataSource"
+           <jdbc-user-service data-source-ref="dataSource"
 			users-by-username-query="SELECT USER_SEQ as username
 									, USER_PASSWORD as password
 									, 1 as enabled
@@ -45,12 +48,8 @@
 											, AUTH_SEQ as authority
 											FROM AUTH_RELATION
 											WHERE USER_SEQ = ?"
-			/> -->
-			<user-service>
-			<user name="a123" password="12345" authorities="ROLE_USER" />
-			<user name="b123" password="12345" authorities="ROLE_USER" />
-			<user name="c123" password="12345" authorities="ROLE_USER" />
-			</user-service>
+			/>
+			
         </authentication-provider>
     </authentication-manager>
  

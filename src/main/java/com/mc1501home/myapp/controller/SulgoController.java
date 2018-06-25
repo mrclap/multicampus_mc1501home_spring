@@ -40,13 +40,13 @@ public class SulgoController {
 		// divided depending on action value
 		if ("sul-go".equalsIgnoreCase(action)) {
 			if(principal != null) {
-				paramMap.put("USER_ID", principal.getName());
+				paramMap.put("USER_SEQ", principal.getName());
 				resultMap = (Map<String, Object>)service.getObject("", paramMap);
 				resultList = (List<Object>)service.getList("", paramMap);
 			}
 		} else if("merge".equals(action)) {
 			if(principal != null) {
-				paramMap.put("USER_ID", principal.getName());
+				paramMap.put("USER_SEQ", principal.getName());
 				resultMap = (Map)service.saveObject("", paramMap);
 				viewName = "index";
 			}
